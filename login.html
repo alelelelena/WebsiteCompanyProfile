@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #e8eaf0;
+      --card-bg: #f0f2f7;
+      --input-bg: #8a9bbf;
+      --input-shadow-dark: #6b7a9a;
+      --input-shadow-light: #aabce0;
+      --btn-bg: #7a8faf;
+      --btn-hover: #6a7f9f;
+      --text-dark: #2c3e60;
+      --text-light: #dce4f0;
+      --placeholder: #c8d4e8;
+      --title-color: #2c3e60;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 50px 45px 45px;
+      width: 380px;
+      box-shadow:
+        8px 8px 20px #c5c9d6,
+        -8px -8px 20px #ffffff;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--title-color);
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: 0.01em;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--placeholder);
+      margin-bottom: 6px;
+      padding-left: 18px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 40px;
+      background: var(--input-bg);
+      color: var(--text-light);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      outline: none;
+      box-shadow:
+        inset 4px 4px 10px var(--input-shadow-dark),
+        inset -3px -3px 8px var(--input-shadow-light);
+      transition: box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .input-group input::placeholder {
+      color: transparent;
+    }
+
+    .input-group input:focus {
+      background: #95a8c8;
+      box-shadow:
+        inset 5px 5px 12px #6b7a9a,
+        inset -4px -4px 10px #bed0ee;
+    }
+
+    .btn-login {
+      display: block;
+      width: 55%;
+      margin: 30px auto 0;
+      padding: 14px;
+      border: none;
+      border-radius: 40px;
+      background: var(--btn-bg);
+      color: var(--text-light);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow:
+        5px 5px 14px #6b7a9a,
+        -4px -4px 12px #aabce0;
+      transition: all 0.2s ease;
+    }
+
+    .btn-login:hover {
+      background: var(--btn-hover);
+      box-shadow:
+        6px 6px 16px #5e6d8a,
+        -3px -3px 10px #b8ccee;
+      transform: translateY(-1px);
+    }
+
+    .btn-login:active {
+      transform: translateY(1px);
+      box-shadow:
+        inset 3px 3px 8px #6b7a9a,
+        inset -2px -2px 6px #aabce0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Login</h1>
+
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Username" autocomplete="username"/>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password"/>
+    </div>
+
+    <button class="btn-login" onclick="handleLogin()">Login</button>
+  </div>
+
+  <script>
+    function handleLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        alert('Harap isi username dan password terlebih dahulu.');
+        return;
+      }
+
+      // Tambahkan logika login di sini
+      alert('Login berhasil! Selamat datang, ' + username);
+    }
+  </script>
+</body>
+</html>
